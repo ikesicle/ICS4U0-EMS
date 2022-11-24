@@ -12,6 +12,9 @@
     
 // PART TIME EMPLOYEE
 
+package thesimpleems_16nov;
+
+
 public class PTE extends EmployeeInfo {
     
     

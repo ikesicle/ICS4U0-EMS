@@ -9,11 +9,16 @@
  *
  * @author P0068839
  */
+
+package thesimpleems_16nov;
+
+
 public class MainJFrame extends javax.swing.JFrame {
     
     // ATTRIBUTES
     public MyHashTable theHT;
-    
+    public NewEmployee newWindow;
+    public Search searchWindow;
     
     // CONSTRUCTORS
     /**
@@ -51,7 +56,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        employeeTable = new javax.swing.JTable();
         dialogBox = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +86,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jButton11.setText("Load");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        employeeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -104,8 +109,8 @@ public class MainJFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        jScrollPane1.setViewportView(jTable1);
+        employeeTable.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
+        jScrollPane1.setViewportView(employeeTable);
 
         dialogBox.setText("Double-click on an employee to display their information, or click and press [ View / Edit ]");
 
@@ -156,7 +161,11 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        // TODO add your handling code here:
+        System.out.println(evt);
+        if (newWindow == null || !newWindow.isVisible()) {
+            newWindow = new NewEmployee(theHT);
+            newWindow.setVisible(true);
+        }
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -167,7 +176,9 @@ public class MainJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_viewButtonActionPerformed
 
-    
+    public void refreshView() {
+        employeeTable.
+    }
     
     /**
      * @param args the command line arguments
@@ -207,10 +218,10 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel dialogBox;
+    private javax.swing.JTable employeeTable;
     private javax.swing.JButton jButton11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton newButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton searchButton;

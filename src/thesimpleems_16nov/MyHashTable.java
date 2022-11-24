@@ -1,6 +1,7 @@
 
-import java.util.*;
 
+package thesimpleems_16nov;
+import java.util.*;
 
 public class MyHashTable {
 	
